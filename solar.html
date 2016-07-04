@@ -1,0 +1,31 @@
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.6/Chart.min.js" type="text/javascript"></script> -->
+<script src="Chart.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-chart.js/1.0.0-alpha8/angular-chart.min.js" type="text/javascript"></script> -->
+<script src="angular-chart.min.js"></script>
+<!-- <link rel="stylesheet" href="//cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css" /> -->
+<link rel="angular-chart.min.css" />
+
+<div id="solardata" ng-app="solardata">
+    <h2>Latest Output</h2>
+    <div ng-controller="TodayCtrl">
+    	<div class="todaydata">
+	    <div class="todaydate">{{date}}</div> <div class="todaygenerate">{{generated}}</div>
+	    </div>
+	    <div class="footnote">Latest readings are updated daily at five minutes before noon and midnight.</div>
+    </div>
+    <br><br>
+	<div ng-controller="DailyBarCtrl">
+		<h2>Daily Generation for {{ dailyMonth }}</h2>
+		<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+	</div>
+	<br><br>
+	<div ng-controller="MonthlyBarCtrl">
+    	<h2>Monthly Generation for {{ yearMonth }}</h2>
+		<canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series"></canvas>
+	</div>
+	<br><br>
+    <div class="poweredby">Powered by&nbsp;&nbsp;<a href="http://enphase.com" target="_blank"><img src="http://cdn.smylee.com/images/20160702_solar/ENPH_logo_scr_RGB_API_sm.png" alt="Enphase Energy"></a></div>
+    <div class="clear-all"></div>
+</div>
+
+<script type="text/javascript" src="/js/smylee/solar_angular.js"></script>
